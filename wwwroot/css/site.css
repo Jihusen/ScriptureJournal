@@ -1,15 +1,31 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿@import url('https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap')
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
+body {
+    background-color: #fff9e6;
+}
+
 /* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+a, a:hover {
+  color: #fff;
+}
+
+tbody td a, tbody td a:hover{
+    color: #1b6ec2;
+}
+
+div.redirect a, div.redirect a:hover {
+    color: #000;
+}
+
+h1, h4 {
+    font-family: 'Yeon Sung', 'Lucida Handwriting';
 }
 
 .btn-primary {
@@ -62,10 +78,15 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+
+
+footer ul {
+    list-style: none;
+    text-align: center;
+}
+
+.entryControls {
+    position: absolute;
+    right: 0px;
 }
