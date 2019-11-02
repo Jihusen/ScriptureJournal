@@ -1,0 +1,70 @@
+﻿@page
+@model ScriptureJournal.Pages.Scriptures.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Scripture</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Scripture.Title" class="control-label"></label>
+                <input asp-for="Scripture.Title" class="form-control" />
+                <span asp-validation-for="Scripture.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Scripture.DateAdded" class="form-control" type="hidden"  id="EntryDate"/>
+                <span asp-validation-for="Scripture.DateAdded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scripture.Book" class="control-label"></label>
+                <input asp-for="Scripture.Book" class="form-control"/>
+                <span asp-validation-for="Scripture.Book" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scripture.Chapter" class="control-label"></label>
+                <input asp-for="Scripture.Chapter" class="form-control" />
+                <span asp-validation-for="Scripture.Chapter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scripture.Verse" class="control-label"></label>
+                <input asp-for="Scripture.Verse" class="form-control" />
+                <span asp-validation-for="Scripture.Verse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scripture.Notes" class="control-label"></label>
+                <input asp-for="Scripture.Notes" class="form-control" />
+                <span asp-validation-for="Scripture.Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+            <script>
+                //Inserts todays date into the new entry
+                var today = new Date();
+                var day = String(today.getDate()).padStart(2, '0');
+                var month = String(today.getMonth() + 1).padStart(2, '0');
+                var year = today.getFullYear();
+
+                today = month + '/' + day + '/' + year;
+                document.getElementById('EntryDate').value = today;
+            </script>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
